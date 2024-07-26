@@ -45,7 +45,4 @@
     <?php endif ?>
   </ul>
 </nav>
-<script>
-
-</script>
 <?php endif ?>
