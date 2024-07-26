@@ -1,3 +1,4 @@
+<?php if (isset($collection) && $collection->count() > 0) : ?>
 <?php $pagination = $collection->pagination() ?>
 <nav class='collection-pagination'>
   <ul>
@@ -16,12 +17,14 @@
 
     <?php foreach ($pagination->range($range ?? 10) as $r) : ?>
     <li class="collection-pagination__item collection-pagination__item--to-number">
-      <a <?php
+      <a
+      <?php
       echo attr([
         'href' => $pagination->pageURL($r),
         'aria-current' => $pagination->page() === $r ? 'page' : null,
       ])
-          ?>>
+      ?>
+      >
         <?php echo $r ?>
       </a>
     </li>
@@ -41,3 +44,4 @@
     <?php endif ?>
   </ul>
 </nav>
+<?php endif ?>
