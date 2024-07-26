@@ -1,6 +1,13 @@
 <?php if (isset($collection) && $collection->count() > 0) : ?>
 <?php $pagination = $collection->pagination() ?>
-<nav class='collection-pagination' data-top="<?php echo $top ?? null ?>" data-content="<?php echo $content ?? null ?>">
+  <?php $attrs = [
+    'class' => 'collection-pagination',
+    'data-top' => $top ?? null,
+    'data-content' => $content ?? null,
+    'data-pagename' => $pagename ?? null,
+    'data-offset' => $offset ?? null,
+  ] ?>
+  <nav <?php echo attr($attrs) ?>>
   <ul>
     <?php if ($pagination->hasPrevPage()) : ?>
     <li class="collection-pagination__item collection-pagination__item--to-first">
